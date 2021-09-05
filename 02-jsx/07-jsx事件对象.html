@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        // 需求，通过按钮，控制p标签显隐
+
+        // 类组件
+        class Home extends React.Component {
+            constructor() {
+                super();
+
+                this.state = {
+                    flag: true,
+                    names: ['鲁班', '虞姬', '黄忠', '阿克'],
+                    message: '小六'
+                }
+            }
+
+            render() {
+                const { names } = this.state;
+                return (
+                    <div>
+                        {/*在react中当监听方法被触发的时候，react也会传递一个事件对象给我们
+                        但是react传递给我们的事件对象并不是一个原生的事件对象
+                    而是react根据原生的事件对象自己合成的事件对象
+                注意：虽然传递给我们的是react自己合成的事件对象，但是提供的api和元素几乎一致
+            如果你用到了，那么根据合成事件对象去拿到原生的事件对象*/}
+                        <button onClick={(e) => { console.log(e) }}>按钮</button>
+                    </div>
+                )
+            }
+
+            myfun() {
+                console.log(this);
+            }
+        }
+
+        ReactDOM.render(<Home />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        //    1.创建虚拟dom
+        let message = '小六';
+        myRender()
+
+        function myRender() {
+            let oDiv = React.createElement('div', null, message);
+            let oBtn = React.createElement('button', {
+                onClick: myFn
+            }, '按钮');
+            let oRoot = React.createElement('div', null, oDiv, oBtn);
+            // 2.将虚拟dom转换成真实dom
+            ReactDOM.render(oRoot, document.getElementById('app'), () => {
+                console.log('已经渲染到界面上了');
+            })
+        }
+
+        function myFn() {
+            message = 'six';
+            // 注意点：默认情况下，react中，修改完数据之后，是不会自动更新界面的
+            myRender()
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        // let message = '小六'
+
+        // 类组件
+        class Home extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    message: '小六'
+                }
+            }
+
+            render() {
+                // 1.jsx中不能使用html注释。jsx会将它当作一个元素来处理
+                // 2.在jsx中不能使用js的单行注释的，因为元素中是有内容的，所以jsx会把单行注释当做是元素的内容处理
+                // 3.jsx中不能使用js的多行注释的
+                return (
+                    <div>
+                        {
+                            // 单行注释
+                            /*
+                            多行注释
+                            */
+                        }
+                        <div>{this.state.message}</div>
+                        <button onClick={this.myFn}>按钮</button>
+                    </div>
+                )
+            }
+
+            myFn = () => {
+                this.setState({
+                    message: 'six'
+                })
+            }
+        }
+
+        ReactDOM.render(<Home />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+    <!-- 需求，监听按钮点击，修改div内容 -->
+    <div class='box'>
+    </div>
+
+    <button>按钮</button>
+    <script>
+        let message = '小六';
+        const oDiv = document.querySelector('.box');
+        oDiv.innerText = message;
+
+        const oBtn = document.querySelector('button');
+        oBtn.onclick = function (){
+            message = 'six';
+            console.log(message);
+            oDiv.innerText = message;
+        }
+    </script>
+</body>
+
+</html>

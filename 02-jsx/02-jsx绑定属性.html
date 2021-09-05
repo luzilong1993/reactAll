@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../react17/react.development.v17.js"></script>
+    <script src="../react17/react-dom.development.v17.js"></script>
+    <script src="../react17/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        // 类组件
+        class Home extends React.Component {
+            constructor() {
+                super();
+                this.state = {
+                    message: '小六'
+                }
+            }
+
+            render() {
+
+                return (
+                    <div>
+                        {/*
+                            1.对于普通属性而言，过去怎么绑定，现在就怎么绑定 
+                        */}
+                        <p id="box">{this.state.message}</p>
+                        <p title={this.state.message}>{this.state.message}</p>
+                        {/*
+                            2.通过jsx绑定类名,应该使用className
+                        */}
+                        <p className='active'>{this.state.message}</p>
+
+                        {/*4.如果想通过jsx绑定样式,通过像对象的形式来绑定*/}
+                        <p style={{ color: 'red', fontSize: '100px' }}>{this.state.message}</p>
+                        <button onClick={this.myFn}>按钮</button>
+                    </div>
+                )
+            }
+
+            myFn = () => {
+                this.setState({
+                    message: 'six'
+                })
+            }
+        }
+
+        ReactDOM.render(<Home />, document.getElementById('app'))
+    </script>
+</body>
+
+</html>
