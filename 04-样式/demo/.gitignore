@@ -1,8 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/03-组件/demo/node_modules
-/04-样式/demo/node_modules
+/node_modules
 /.pnp
 .pnp.js
 
