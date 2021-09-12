@@ -1,5 +1,6 @@
 import React from 'react';
-
+import Home from './Home';
+import About from './About';
 
 class App extends React.PureComponent {
     constructor(props) {
@@ -8,9 +9,12 @@ class App extends React.PureComponent {
     }
     render() { 
         return ( 
-            <div>aaa</div>
+            <div>
+                <Home/>
+                <About/>
+            </div>
          );
     }
 }
  
-export default App;
+export default App
